@@ -1,0 +1,867 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Monaco;
+\f3\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid402\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The WLP4 programming language contains a strict subset of the features of C++. A WLP4 source file contains a sequence of procedure definitions, ending with the main procedure 
+\f1 wain
+\f0 .\
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\b\fs28 \cf2 Lexical Syntax\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0\fs24 \cf2 A procedure definition is a sequence of 
+\i tokens
+\i0  optionally separated by 
+\i white space
+\i0  consisting of spaces, newlines, or comments. Every valid token is one of the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ID: a string consisting of a letter (in the range a-z or A-Z) followed by zero or more letters and digits (in the range 0-9), but not equal to "wain", "int", "if", "else", "while", "println", "return", "NULL", "new" or "delete".\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 NUM: a string consisting of a single digit (in the range 0-9) or two or more digits, the first of which is not 0; the numeric value of a NUM token cannot exceed 2^31-1\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LPAREN: the string "("\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 RPAREN: the string ")"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LBRACE: the string "\{"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 RBRACE: the string "\}"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 RETURN: the string "return" (in lower case)\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 IF: the string "if"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ELSE: the string "else"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 WHILE: the string "while"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 PRINTLN: the string "println"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 WAIN: the string "wain"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 BECOMES: the string "="\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 INT: the string "int"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 EQ: the string "=="\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 NE: the string "!="\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LT: the string "<"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GT: the string ">"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LE: the string "<="\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GE: the string ">="\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 PLUS: the string "+"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 MINUS: the string "-"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 STAR: the string "*"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 SLASH: the string "/"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 PCT: the string "%"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 COMMA: the string ","\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 SEMI: the string ";"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 NEW: the string "new"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 DELETE: the string "delete"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LBRACK: the string "["\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 RBRACK: the string "]"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 AMP: the string "&"\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 NULL: the string "NULL"\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 White space consists of any sequence of the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 SPACE: (ascii 32)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 TAB: (ascii 9)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 NEWLINE: (ascii 10)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 COMMENT: the string "//" followed by all the characters up to and including the next NEWLINE\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 Any pair of consecutive tokens may be separated by white space. Pairs of consecutive tokens that both come from one of the following sets 
+\i must
+\i0  be separated by white space:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \{ID, NUM, RETURN, IF, ELSE, WHILE, PRINTLN, WAIN, INT, NEW, NULL, DELETE\}\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \{LT, GT, BECOMES\}\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \{EQ, BECOMES\}\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 Tokens that contain letters are case-sensitive; for example, 
+\f1 int
+\f0  is an INT token, while 
+\f1 Int
+\f0  is not.\
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\b\fs28 \cf2 Context-free Syntax\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0\fs24 \cf2 A context-free grammar for a valid WLP4 program is:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 terminal symbols: the set of valid tokens above\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 nonterminal symbols: \{procedures, procedure, main, params, paramlist, type, dcl, dcls, statements, lvalue, expr, statement, test, term, factor, arglist\}\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 start symbol: procedures\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 production rules:
+\f1 procedures 
+\f2 \uc0\u8594 
+\f1  procedure procedures\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 procedures 
+\f2 \uc0\u8594 
+\f1  main\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 procedure 
+\f2 \uc0\u8594 
+\f1  INT ID LPAREN params RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 main 
+\f2 \uc0\u8594 
+\f1  INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 params 
+\f2 \uc0\u8594 
+\f1 \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 params 
+\f2 \uc0\u8594 
+\f1  paramlist\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 paramlist 
+\f2 \uc0\u8594 
+\f1  dcl\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 paramlist 
+\f2 \uc0\u8594 
+\f1  dcl COMMA paramlist\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 type 
+\f2 \uc0\u8594 
+\f1  INT\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 type 
+\f2 \uc0\u8594 
+\f1  INT STAR\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 dcls 
+\f2 \uc0\u8594 
+\f1  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 dcls 
+\f2 \uc0\u8594 
+\f1  dcls dcl BECOMES NUM SEMI\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 dcls 
+\f2 \uc0\u8594 
+\f1  dcls dcl BECOMES NULL SEMI\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 dcl 
+\f2 \uc0\u8594 
+\f1  type ID\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statements 
+\f2 \uc0\u8594 
+\f1 \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statements 
+\f2 \uc0\u8594 
+\f1  statements statement  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statement 
+\f2 \uc0\u8594 
+\f1  lvalue BECOMES expr SEMI\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statement 
+\f2 \uc0\u8594 
+\f1  IF LPAREN test RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statement 
+\f2 \uc0\u8594 
+\f1  WHILE LPAREN test RPAREN LBRACE statements RBRACE \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statement 
+\f2 \uc0\u8594 
+\f1  PRINTLN LPAREN expr RPAREN SEMI\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 statement 
+\f2 \uc0\u8594 
+\f1  DELETE LBRACK RBRACK expr SEMI\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr EQ expr  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr NE expr  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr LT expr \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr LE expr  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr GE expr  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 test 
+\f2 \uc0\u8594 
+\f1  expr GT expr \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 expr 
+\f2 \uc0\u8594 
+\f1  term \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 expr 
+\f2 \uc0\u8594 
+\f1  expr PLUS term \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 expr 
+\f2 \uc0\u8594 
+\f1  expr MINUS term \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 term 
+\f2 \uc0\u8594 
+\f1  factor \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 term 
+\f2 \uc0\u8594 
+\f1  term STAR factor \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 term 
+\f2 \uc0\u8594 
+\f1  term SLASH factor \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 term 
+\f2 \uc0\u8594 
+\f1  term PCT factor \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  ID  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  NUM  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  NULL  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  LPAREN expr RPAREN  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  AMP lvalue\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  STAR factor\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  NEW INT LBRACK expr RBRACK\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  ID LPAREN RPAREN\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 factor 
+\f2 \uc0\u8594 
+\f1  ID LPAREN arglist RPAREN\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 arglist 
+\f2 \uc0\u8594 
+\f1  expr\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 arglist 
+\f2 \uc0\u8594 
+\f1  expr COMMA arglist\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 lvalue 
+\f2 \uc0\u8594 
+\f1  ID  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 lvalue 
+\f2 \uc0\u8594 
+\f1  STAR factor\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 lvalue 
+\f2 \uc0\u8594 
+\f1  LPAREN lvalue RPAREN  \
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8232 
+\f0 \
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\b\fs28 \cf2 Context-sensitive Syntax\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0\fs24 \cf2 A procedure is any string derived from 
+\f1 procedure
+\f0  or 
+\f1 main
+\f0 . The name of the procedure is the 
+\f1 ID
+\f0  in the grammar rule whose left-hand side is 
+\f1 procedure
+\f0 . The name of the procedure derived from 
+\f1 main
+\f0  is 
+\f1 wain
+\f0 . A procedure is said to be declared from the first occurrence of its name in the string that makes up that procedure (i.e., once the name has been encountered in the procedure's header). A procedure cannot be called until it has been declared (formally, the ID in 
+\f1 factor 
+\f2 \uc0\u8594 
+\f1  ID LPAREN RPAREN
+\f0  or 
+\f1 factor 
+\f2 \uc0\u8594 
+\f1  ID LPAREN arglist RPAREN
+\f0  must be the name of a procedure that has been declared). Thus, a procedure may call itself recursively, and a procedure may call procedures declared before itself, but a procedure may not call procedures declared after itself. Consequently, there is no mutual recursion in WLP4. Two procedures may not have the same name. The procedure 
+\f1 wain
+\f0  may not call itself recursively.\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 Any ID in a sequence derived from 
+\f1 dcl
+\f0  within a procedure 
+\f1 p
+\f0  is said to be 
+\i declared in p
+\i0 . Any ID derived from 
+\f1 factor
+\f0  or 
+\f1 lvalue
+\f0  within p is said to be 
+\i used in p
+\i0 . Any particular string 
+\i x
+\i0  that is an ID may be declared at most once within a given procedure. The same ID may be declared in different procedures. A string 
+\i x
+\i0  which is an ID may be used in any number of places, but only if the same string 
+\i x
+\i0  is declared. String comparisons are case sensitive; for example, "FOO" and "foo" are distinct.\
+An ID may have the same name as a procedure. If an ID 
+\f1 x
+\f0  is declared in a procedure 
+\f1 p
+\f0 , all occurrences of 
+\f1 x
+\f0  within 
+\f1 p
+\f0  refer to the ID x, even if a procedure named 
+\f1 x
+\f0  has been declared. The same is true in the special case that 
+\f1 p
+\f0  = 
+\f1 x
+\f0 : a declared ID may have the same name as the procedure that contains it; in this case, all occurrences of ID refer to the variable, not the procedure.\
+Every procedure has a signature, which is a list of strings, each of which is either 
+\f1 int
+\f0  or 
+\f1 int*
+\f0 . The signature of a procedure is the sequence of strings 
+\f1 int
+\f0  or 
+\f1 int*
+\f0  that is derived from
+\f1 params
+\f0 . Note that this sequence may be empty.\
+Instances of the tokens ID, NUM, NULL and the non-terminals 
+\f1 factor
+\f0 , 
+\f1 term
+\f0 , 
+\f1 expr
+\f0 , and 
+\f1 lvalue
+\f0  have a 
+\i type
+\i0 , which is either 
+\f1 int
+\f0  or 
+\f1 int*
+\f0 . Types must satisfy the following rules:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of an ID is 
+\f1 int
+\f0  if the 
+\f1 dcl
+\f0  in which the ID is declared derives a sequence containing a 
+\f1 type
+\f0  that derives 
+\f1 INT
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of an ID is 
+\f1 int*
+\f0  if the 
+\f1 dcl
+\f0  in which the ID is declared derives a sequence containing a 
+\f1 type
+\f0  that derives 
+\f1 INT STAR
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a NUM is 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a NULL token is 
+\f1 int*
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving ID, NUM, or NULL is the same as the type of that token.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of an 
+\f1 lvalue
+\f0  deriving ID is the same as the type of that ID.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving LPAREN 
+\f1 expr
+\f0  RPAREN is the same as the type of the 
+\f1 expr
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of an 
+\f1 lvalue
+\f0  deriving LPAREN 
+\f1 lvalue
+\f0  RPAREN is the same as the type of the derived 
+\f1 lvalue
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving AMP 
+\f1 lvalue
+\f0  is 
+\f1 int*
+\f0 . The type of the derived lvalue (i.e. the one preceded by AMP) must be 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  or 
+\f1 lvalue
+\f0  deriving STAR 
+\f1 factor
+\f0  is 
+\f1 int
+\f0 . The type of the derived factor (i.e. the one preceded by STAR) must be 
+\f1 int*
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving NEW INT LBRACK 
+\f1 expr
+\f0  RBRACK is 
+\f1 int*
+\f0 . The type of the derived 
+\f1 expr
+\f0  must be 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving ID LPAREN RPAREN is 
+\f1 int
+\f0 . The procedure whose name is ID must have an empty signature.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 factor
+\f0  deriving ID LPAREN 
+\f1 arglist
+\f0  RPAREN is 
+\f1 int
+\f0 . The procedure whose name is ID must have a signature whose length is equal to the number of 
+\f1 expr
+\f0  strings (separated by COMMA) that are derived from 
+\f1 arglist
+\f0 . Further the types of these 
+\f1 expr
+\f0  strings must exactly match, in order, the types in the procedure's signature.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 term
+\f0  deriving 
+\f1 factor
+\f0  is the same as the type of the derived 
+\f1 factor
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of a 
+\f1 term
+\f0  directly deriving anything other than just 
+\f1 factor
+\f0  is 
+\f1 int
+\f0 . The 
+\f1 term
+\f0  and 
+\f1 factor
+\f0  directly derived from such a 
+\f1 term
+\f0  must have type 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The type of an 
+\f1 expr
+\f0  deriving 
+\f1 term
+\f0  is the same as the type of the derived 
+\f1 term
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 expr
+\f0  derives 
+\f1 expr
+\f0  PLUS 
+\f1 term
+\f0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
+\ls5\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  and the derived 
+\f1 term
+\f0  may both have type 
+\f1 int
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int
+\f0 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  may have type 
+\f1 int*
+\f0  and the derived 
+\f1 term
+\f0  may have type 
+\f1 int
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int*
+\f0 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  may have type 
+\f1 int
+\f0  and the derived 
+\f1 term
+\f0  may have type 
+\f1 int*
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int*
+\f0 .\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 expr
+\f0  derives 
+\f1 expr
+\f0  MINUS 
+\f1 term
+\f0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
+\ls5\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  and the derived 
+\f1 term
+\f0  may both have type 
+\f1 int
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int
+\f0 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  may have type 
+\f1 int*
+\f0  and the derived 
+\f1 term
+\f0  may have type 
+\f1 int
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int*
+\f0 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The derived 
+\f1 expr
+\f0  and the derived 
+\f1 term
+\f0  may both have type 
+\f1 int*
+\f0 , in which case the type of the 
+\f1 expr
+\f0  deriving them is 
+\f1 int
+\f0 .\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The second 
+\f1 dcl
+\f0  in the sequence directly derived from 
+\f1 main
+\f0  must derive a 
+\f1 type
+\f0  that derives INT.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The 
+\f1 expr
+\f0  in the sequence directly derived from 
+\f1 procedure
+\f0  must have type 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 statement
+\f0  derives 
+\f1 lvalue
+\f0  BECOMES 
+\f1 expr
+\f0  SEMI, the derived 
+\f1 lvalue
+\f0  and the derived 
+\f1 expr
+\f0  must have the same type.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 statement
+\f0  derives PRINTLN LPAREN 
+\f1 expr
+\f0  RPAREN SEMI, the derived 
+\f1 expr
+\f0  must have type 
+\f1 int
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 statement
+\f0  derives DELETE LBRACK RBRACK 
+\f1 expr
+\f0  SEMI, the derived 
+\f1 expr
+\f0  must have type 
+\f1 int*
+\f0 .\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Whenever 
+\f1 test
+\f0  directly derives a sequence containing two 
+\f1 expr
+\f0 s, they must both have the same type.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 dcls
+\f0  derives 
+\f1 dcls
+\f0  
+\f1 dcl
+\f0  BECOMES NUM SEMI, the derived 
+\f1 dcl
+\f0  must derive a sequence containing a 
+\f1 type
+\f0  that derives INT.\
+\ls5\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When 
+\f1 dcls
+\f0  derives 
+\f1 dcls
+\f0  
+\f1 dcl
+\f0  BECOMES NULL SEMI, the derived 
+\f1 dcl
+\f0  must derive a sequence containing a 
+\f1 type
+\f0  that derives INT STAR.\
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\b\fs28 \cf2 Semantics\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\b0\fs24 \cf2 Any WLP4 program that obeys the lexical, context-free, and context-sensitive syntax rules above is a also a valid C++ program fragment. The meaning of the WLP4 program is defined to be identical to that of the C++ program formed by inserting the WLP4 program at the indicated location in one of the following C++ program shells:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When the first 
+\f1 dcl
+\f0  in the sequence directly derived from 
+\f1 procedure
+\f0  derives a 
+\f1 type
+\f0  that derives INT, the WLP4 program is inserted into the following shell:
+\f1 int wain(int, int);\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 void println(int);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 // === Insert WLP4 Program Here ===\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include <stdlib.h>\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include <stdio.h>\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 int main(int argc, char** argv) \{\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   int a,b,c;\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   printf("Enter first integer: ");\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   scanf("%d", &a);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   printf("Enter second integer: ");\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   scanf("%d", &b);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   c = wain(a,b);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   printf("wain returned %d\\n", c);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   return 0;\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \}\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 void println(int x)\{\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2    printf("%d\\n",x);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \}\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8232 
+\f0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 When the first 
+\f1 dcl
+\f0  in the sequence directly derived from 
+\f1 procedure
+\f0  derives a 
+\f1 type
+\f0  that derives INT STAR, the WLP4 program is inserted into the following shell:
+\f1 int wain(int*, int);\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls6\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 void println(int);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 // === Insert WLP4 Program Here ===\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include <stdlib.h>\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include <stdio.h>\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 int main(int argc, char** argv) \{\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   int l, c;\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   int* a;\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   printf("Enter length of array: ");\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   scanf("%d", &l);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   a = (int*) malloc(l*sizeof(int));\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   for(int i = 0; i < l; i++) \{\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2     printf("Enter value of array element %d: ", i);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2     scanf("%d", a+i);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   \}\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   c = wain(a,l);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   printf("wain returned %d\\n", c);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2   return 0;\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \}\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 void println(int x)\{\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2    printf("%d\\n",x);\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \}\uc0\u8232 
+\f0 \
+}
